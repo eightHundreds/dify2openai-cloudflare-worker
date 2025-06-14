@@ -1,0 +1,28 @@
+{
+  "name": "dify2openai-cloudflare-worker",
+  "version": "1.0.0",
+  "description": "将 Dify API 代理为 OpenAI API 兼容接口的 Cloudflare Worker",
+  "main": "worker.js",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "tail": "wrangler tail"
+  },
+  "keywords": [
+    "dify",
+    "openai",
+    "api",
+    "proxy",
+    "cloudflare",
+    "worker"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eightHundreds/dify2openai-cloudflare-worker.git"
+  }
+}

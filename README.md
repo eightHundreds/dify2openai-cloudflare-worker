@@ -2,6 +2,8 @@
 
 本项目是一个将 Dify API 代理为 OpenAI API 兼容接口的 Cloudflare Worker。
 
+> 灵感来源于 [fatwang2/dify2openai](https://github.com/fatwang2/dify2openai), Github Copilot当苦力
+
 ## 快速部署
 
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/eightHundreds/dify2openai-cloudflare-worker)
@@ -24,13 +26,48 @@
 - `INPUT_VARIABLE`：输入变量名（Workflow/Completion 模式下必填）
 - `OUTPUT_VARIABLE`：输出变量名（Workflow/Completion 模式下必填）
 
+### 如何配置环境变量
+
+1. **通过 Cloudflare Dashboard**：
+   - 登录 Cloudflare Dashboard
+   - 进入 Workers & Pages > 选择你的 Worker
+   - 点击 Settings > Environment Variables
+   - 添加上述环境变量
+
+2. **通过 Wrangler CLI**：
+   ```bash
+   wrangler secret put DIFY_API_URL
+   wrangler secret put BOT_TYPE
+   wrangler secret put INPUT_VARIABLE
+   wrangler secret put OUTPUT_VARIABLE
+   ```
+
 ## 部署
 
 ### 方式一：一键部署（推荐）
 
 点击上方的 "Deploy to Cloudflare Workers" 按钮即可快速部署。
 
+**注意**：部署成功后，您需要在 Cloudflare Dashboard 中配置以下环境变量：
+- `DIFY_API_URL`：您的 Dify API 地址
+- `BOT_TYPE`：Bot 类型（Chat、Completion 或 Workflow）
+- `INPUT_VARIABLE`：输入变量名（仅 Workflow/Completion 模式需要）
+- `OUTPUT_VARIABLE`：输出变量名（仅 Workflow/Completion 模式需要）
+
 ### 方式二：手动部署
+
+1. 克隆本仓库
+2. 安装 Wrangler CLI：`npm install -g wrangler`
+3. 登录 Cloudflare：`wrangler auth login`
+4. 配置环境变量：
+   ```bash
+   wrangler secret put DIFY_API_URL
+   wrangler secret put BOT_TYPE
+   # 根据需要配置其他变量
+   ```
+5. 部署：`wrangler deploy`
+
+### 方式三：从源码部署
 
 1. 将 `worker.js` 上传到 Cloudflare Worker。
 2. 配置上述环境变量。
