@@ -2,6 +2,19 @@
 
 本项目是一个将 Dify API 代理为 OpenAI API 兼容接口的 Cloudflare Worker。
 
+## 快速部署
+
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/eightHundreds/dify2openai-cloudflare-worker)
+
+点击上方按钮即可一键部署到 Cloudflare Workers。
+
+## Dify 配置说明
+
+1. 在Dify上创建一个ChatFlow
+2. 选好你的模型
+3. 其他配置不要动
+
+
 ## 环境变量配置
 
 在 Cloudflare Worker 的环境变量中设置以下变量：
@@ -12,6 +25,12 @@
 - `OUTPUT_VARIABLE`：输出变量名（Workflow/Completion 模式下必填）
 
 ## 部署
+
+### 方式一：一键部署（推荐）
+
+点击上方的 "Deploy to Cloudflare Workers" 按钮即可快速部署。
+
+### 方式二：手动部署
 
 1. 将 `worker.js` 上传到 Cloudflare Worker。
 2. 配置上述环境变量。
