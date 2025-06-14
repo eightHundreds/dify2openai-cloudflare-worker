@@ -6,9 +6,27 @@
 
 ## 快速部署
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/eightHundreds/dify2openai-cloudflare-worker)
+### 方法一：使用模板部署（推荐）
 
-点击上方按钮即可一键部署到 Cloudflare Workers。
+1. 点击下方按钮直接使用模板创建新的仓库并部署：
+
+[![Deploy with Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/eightHundreds/dify2openai-cloudflare-worker)
+
+2. 或者直接访问：`https://deploy.workers.cloudflare.com/?url=https://github.com/eightHundreds/dify2openai-cloudflare-worker`
+
+### 方法二：Fork 后部署
+
+1. Fork 这个仓库到您的 GitHub 账户
+2. 在 Cloudflare Dashboard 中：
+   - 进入 Workers & Pages
+   - 点击 "Create application" 
+   - 选择 "Pages" 标签
+   - 连接到 Git，选择您 fork 的仓库
+   - 部署设置保持默认即可
+
+### 部署后配置
+
+部署完成后，您需要配置环境变量：
 
 ## Dify 配置说明
 
@@ -123,6 +141,26 @@ Content-Type: application/json
 
 访问 `/` 路径可查看部署成功页面。
 
+## 故障排除
+
+### 一键部署失败
+
+如果点击一键部署按钮时出现"无法获取存储库内容"的错误，请尝试以下解决方案：
+
+1. **检查仓库权限**：确保仓库是公开的（public）
+2. **使用 Fork 方式**：
+   - Fork 本仓库到您的账户
+   - 使用您自己的仓库链接进行部署
+3. **手动部署**：按照下面的手动部署步骤进行
+4. **清除浏览器缓存**：有时浏览器缓存会导致问题
+5. **稍后重试**：GitHub 或 Cloudflare 服务偶尔可能不可用
+
+### 常见问题
+
+- **502 错误**：检查环境变量是否正确配置
+- **认证失败**：确保 Dify API Key 正确设置
+- **CORS 错误**：本项目已处理 CORS，如仍有问题请检查请求头
+
 ## 注意事项
 
 - 需要在 Cloudflare Worker 环境变量中正确配置 Dify API Key。
@@ -131,4 +169,4 @@ Content-Type: application/json
 
 ## License
 
-MIT# dify2openai-cloudflare-worker
+MIT
