@@ -13,16 +13,10 @@
 [![Deploy with Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/eightHundreds/dify2openai-cloudflare-worker)
 
 2. 或者直接访问：`https://deploy.workers.cloudflare.com/?url=https://github.com/eightHundreds/dify2openai-cloudflare-worker`
+### 方法二：手动部署
+如果您不想使用一键部署，可以手动部署：
+拷贝 `worker.js` 文件到您的 Cloudflare Worker 项目中。
 
-### 方法二：Fork 后部署
-
-1. Fork 这个仓库到您的 GitHub 账户
-2. 在 Cloudflare Dashboard 中：
-   - 进入 Workers & Pages
-   - 点击 "Create application" 
-   - 选择 "Pages" 标签
-   - 连接到 Git，选择您 fork 的仓库
-   - 部署设置保持默认即可
 
 ### 部署后配置
 
